@@ -1,0 +1,35 @@
+{
+  "name": "chat-space",
+  "version": "1.0.0",
+  "description": "Instant messaging website",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server",
+    "server": "nodemon server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Chadlee1592/chat-space.git"
+  },
+  "author": "Chad Lee",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Chadlee1592/chat-space/issues"
+  },
+  "homepage": "https://github.com/Chadlee1592/chat-space#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "config": "^3.2.6",
+    "express": "^4.17.1",
+    "express-validator": "^6.4.0",
+    "http": "0.0.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.9.2",
+    "request": "^2.88.2",
+    "socket.io": "^2.3.0"
+  },
+  "devDependencies": {
+    "concurrently": "^5.1.0",
+    "nodemon": "^2.0.2"
+  }
+}
