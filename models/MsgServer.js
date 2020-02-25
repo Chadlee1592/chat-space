@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const MsgServerSchema = new mongoose.Schema({
-    user: {
+    creator: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'user'
     },
@@ -11,7 +11,7 @@ const MsgServerSchema = new mongoose.Schema({
     },
     members: [
         {
-            user: {
+            memberId: {
                 type: mongoose.Schema.Types.ObjectId,
                 ref: 'user'
             },
