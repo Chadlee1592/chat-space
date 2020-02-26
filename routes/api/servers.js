@@ -72,4 +72,41 @@ router.post('/', [
     }
 });
 
+// @route  DELETE api/servers/:id
+// @desc   DELETE a server
+// @access Private
+
+router.delete('/:id', auth, async (req, res) => {
+    try {
+        const server = await Server.findById(req.params.id);
+
+        if (!server) {
+            return res.status(404).json({
+                msg: 'Server not found'
+            });
+        }
+
+        // Check user
+        if (server.creator.toString() !== req.user.id) {
+            return res.status(401).json({
+                msg: 'User not authroized'
+            })
+        }
+
+        await server.remove();
+
+        res.json({
+            msg: 'Server removed'
+        })
+    } catch (err) {
+        console.log(err.message);
+        if (err.kind === 'ObjectId') {
+            return res.status(404).json({
+                msg: 'Server not found'
+            });
+        }
+        res.status(500).send('Server Error');
+    }
+})
+
 module.exports = router;
