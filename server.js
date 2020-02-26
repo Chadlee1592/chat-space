@@ -24,4 +24,10 @@ app.use('/api/auth', require('./routes/api/auth'))
 app.use('/api/messages', require('./routes/api/messages'))
 app.use('/api/servers', require('./routes/api/servers'))
 
+io.on('connect', (socket) => {
+    socket.on('join', ({ name, room }, callback) => {
+
+    })
+})
+
 server.listen(PORT, () => console.log(`Server started on port ${PORT}`))
